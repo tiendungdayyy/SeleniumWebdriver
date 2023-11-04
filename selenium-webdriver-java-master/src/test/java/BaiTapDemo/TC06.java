@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import POM.LoginPage;
 
 @Test
-public class TC06 {
+    public class TC06 {
     public static void tc06(){
         String email_address ="nguyendinhtiendung113@gmail.com";
         String password ="123456";
@@ -91,6 +91,18 @@ public class TC06 {
             for (String handle : driver.getWindowHandles()) {
                 driver.switchTo().window(handle);
             }
+            WebElement company = driver.findElement(By.xpath("//input[@id='billing:company']"));
+            company.clear();
+            company.sendKeys("123");
+
+            WebElement address = driver.findElement(By.xpath("//input[@id='billing:street1']"));
+            address.clear();
+            address.sendKeys("123 dasd");
+
+            WebElement city = driver.findElement(By.xpath("//input[@id='billing:city']"));
+            city.clear();
+            city.sendKeys("Houston");
+
 
         }catch (Exception e){
             e.printStackTrace();
