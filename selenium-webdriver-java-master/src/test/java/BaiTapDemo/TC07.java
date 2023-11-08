@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 @Test
 public class TC07 {
     public static void tc07() {
-        String email_address ="nguyendinhtiendung113@gmail.com";
-        String password ="123456";
+            String email_address ="nguyendinhtiendung113@gmail.com";
+            String password ="123456";
 
 
         //1. Init web-driver session

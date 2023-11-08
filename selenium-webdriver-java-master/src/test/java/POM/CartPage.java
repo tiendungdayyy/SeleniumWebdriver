@@ -17,6 +17,9 @@ public class CartPage {
     By updateTotalButton = By.xpath("//span[contains(text(),'Update Total')]");
     By proceedToCheckOutButton = By.xpath("//li[@class='method-checkout-cart-methods-onepage-bottom']//button[@title='Proceed to Checkout']//span//span[contains(text(),'Proceed to Checkout')]");
 
+    By couponCode = By.xpath("//input[@id='coupon_code']");
+
+    By applyCode = By.xpath("//span[contains(text(),'Apply')]");
     public CartPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -56,4 +59,12 @@ public class CartPage {
         driver.findElement(proceedToCheckOutButton).click();
     }
 
+    public void couponcode(String coupon){
+        WebElement enterCode = driver.findElement(couponCode);
+        enterCode.clear(); // clear the QTY before
+        enterCode.sendKeys(coupon);
+    }
+    public void clickapplyCode() {
+        driver.findElement(applyCode).click();
+    }
 }
