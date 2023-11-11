@@ -2,21 +2,21 @@ package BaiTapDemo;
 
 import driver.driverFactory;
 import org.apache.commons.io.FileUtils;
-//import org.junit.Assert;
+
 import org.openqa.selenium.*;
 
 import POM.RegisterPage;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 
 import java.io.File;
 
 @org.testng.annotations.Test
 public class TC05 {
     public static void tc05() {
-        String firstname ="Dung";
-        String middlename ="Tien";
-        String lastname ="Nguyen Dinh";
-        String email_address ="nguyendinhtiendung113@gmail.com";
+        String firstname ="Tin";
+        String middlename ="Trung";
+        String lastname ="Huynh";
+        String email_address ="tin16@gmail.com";
         String password ="123456";
         String confirmation = "123456";
 
@@ -65,7 +65,6 @@ public class TC05 {
             System.out.println(tWelcome);
 
             // Catch Error
-            AssertJUnit Assert = null;
             try {
                 Assert.assertEquals(vWelcome, tWelcome);
             }catch (Exception e) {
@@ -110,7 +109,7 @@ public class TC05 {
 
             // Take Screen shot
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            String png = "C:\\Users\\Dung\\Downloads\\selenium-webdriver-java-master\\selenium-webdriver-java-master\\src\\test\\java\\BaiTapDemo\\TC05.png";
+            String png = "D:\\Fall23\\SWT301\\Ecommerce Project_Huynh_Trung_Tin\\src\\test\\java\\TC\\TC05.png";
             FileUtils.copyFile(srcFile, new File(png));
 
         } catch (Exception e) {

@@ -20,6 +20,9 @@ public class CartPage {
     By couponCode = By.xpath("//input[@id='coupon_code']");
 
     By applyCode = By.xpath("//span[contains(text(),'Apply')]");
+
+    By enterQty = By.xpath("//input[@class='input-text qty']");
+
     public CartPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -59,12 +62,15 @@ public class CartPage {
         driver.findElement(proceedToCheckOutButton).click();
     }
 
+
     public void couponcode(String coupon){
         WebElement enterCode = driver.findElement(couponCode);
         enterCode.clear(); // clear the QTY before
         enterCode.sendKeys(coupon);
     }
-    public void clickapplyCode() {
-        driver.findElement(applyCode).click();
+    public void setEnterQTY(String qty) {
+        WebElement qtyElement = driver.findElement(enterQty);
+        qtyElement.clear(); // clear the QTY before
+        qtyElement.sendKeys(qty);
     }
 }

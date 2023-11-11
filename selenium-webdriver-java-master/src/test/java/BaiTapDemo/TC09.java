@@ -11,7 +11,7 @@ import POM.IndexPage;
 
 @Test
 public class TC09 {
-    public static void tc08() {
+    public static void tc09() {
         //LoginPage
         String coupon = "GURU50";
         //  Init web-driver session
@@ -36,20 +36,19 @@ public class TC09 {
             // 2a.add IPHONE to cart
             indexPage.setAddToCartLink();
 
-            // switching to new window
-            for (String handle : driver.getWindowHandles()) {
-                driver.switchTo().window(handle);
-            }
+            // belong to 3. ( take first value)
+            String firstPrice = driver
+                    .findElement(By.xpath("//td[@class='a-right']//span")).getText();
 
             // 3.Enter Coupon Code
             indexPage.setEnterCouponCode(coupon);
             indexPage.setApplyLink();
 
             //Verify Grand Total is changed
-            WebElement ActualDiscount = driver
-                    .findElement(By.xpath("(//td[@colspan='1'])[3]"));
-            String ExpectedDiscount = "DISCOUNT (GURU50)";
-            Assert.assertEquals(ActualDiscount.getText(), ExpectedDiscount);
+            String secondPrice = driver
+                    .findElement(By.xpath("//td[@class='a-right']//span")).getText();
+            //second.getText();
+            Assert.assertNotEquals(firstPrice, secondPrice);
 
 
         } catch (Exception e) {
